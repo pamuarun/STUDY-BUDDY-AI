@@ -377,27 +377,6 @@ https://github.com/pamuarun/STUDY-BUDDY-AI.git
 
 ---
 
-# 👨‍💻 Author
-
-## Arun Teja
-
-AI Engineer | MLOps Enthusiast | DevOps Learner | Generative AI Developer
-
-
-
-# ❤️ Acknowledgements
-
-Special thanks to:
-- LangChain
-- Groq
-- Streamlit
-- Kubernetes
-- Jenkins
-- ArgoCD
-- Open Source Community
-
----
-
 <p align="center">
 Built with ❤️ using AI, LLMOps, Kubernetes, GitOps & Cloud Engineering
 </p>
