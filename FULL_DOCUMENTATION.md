@@ -35,7 +35,7 @@
 - **Clone your GitHub repo**
 
   ```bash
-  git clone https://github.com/data-guru0/TESTING-9.git
+  git clone https://github.com/yourname/TESTING-9.git
   ls
   cd TESTING-9
   ls  # You should see the contents of your project
@@ -288,7 +288,7 @@
           stage('Checkout Github') {
               steps {
                   echo 'Checking out code from GitHub...'
-                  checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/data-guru0/GitOPS-testing.git']])
+                  checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/yourname/GitOPS-testing.git']])
               }
           }        
           stage('Build Docker Image') {
@@ -324,8 +324,8 @@
 #### 🔃 Push Jenkinsfile to GitHub
 
 ```bash
-git config --global user.email "gyrogodnon@gmail.com"
-git config --global user.name "data-guru0"
+git config --global user.email "your@gmail.com"
+git config --global user.name "yourname"
 
 git add .
 git commit -m "commit"
@@ -333,7 +333,7 @@ git push origin main
 ```
 
 - When prompted:
-  - **Username**: `data-guru0`
+  - **Username**: `yourname`
   - **Password**: GitHub token (paste, it's invisible)
 
 ---
@@ -377,7 +377,7 @@ git pull origin main
 #### 🐳 Create DockerHub Repository
 
 1. Go to [https://hub.docker.com](https://hub.docker.com)
-2. Create a new repository, e.g., `dataguru97/testing-9`
+2. Create a new repository, e.g., `yourname/testing-9`
 
 ---
 
@@ -392,7 +392,7 @@ git pull origin main
 #### ➕ Add DockerHub Credentials to Jenkins
 
 1. Go to **Jenkins → Manage Jenkins → Credentials → Global → Add Credentials**
-   - **Username**: DockerHub username (e.g., `dataguru97`)
+   - **Username**: DockerHub username (e.g., `yourname`)
    - **Password**: The DockerHub token
    - **ID**: `gitops-dockerhub`
    - **Description**: `DockerHub Access Token`
@@ -424,7 +424,7 @@ git push origin main
 3. Click **Build Now**
 
 ✅ If successful, your image will be available on DockerHub:  
-`https://hub.docker.com/r/dataguru97/testing-9`
+`https://hub.docker.com/r/yourname/testing-9`
 
 ---
 
@@ -571,18 +571,18 @@ Copy the entire content of `.kube/config` into a Notepad for backup and modifica
 
 The `config` file references files like:
 
-- `/home/gyrogodnon/.minikube/ca.crt`
-- `/home/gyrogodnon/.minikube/profiles/minikube/client.crt`
-- `/home/gyrogodnon/.minikube/profiles/minikube/client.key`
+- `/home/yourname/.minikube/ca.crt`
+- `/home/yourname/.minikube/profiles/minikube/client.crt`
+- `/home/yourname/.minikube/profiles/minikube/client.key`
 
 We’ll **inline** the actual base64 content instead of using file paths.
 
 ##### 🔁 For Each of These 3 Files, Run:
 
 ```bash
-cat /home/gyrogodnon/.minikube/ca.crt | base64 -w 0; echo
-cat /home/gyrogodnon/.minikube/profiles/minikube/client.crt | base64 -w 0; echo
-cat /home/gyrogodnon/.minikube/profiles/minikube/client.key | base64 -w 0; echo
+cat /home/yourname/.minikube/ca.crt | base64 -w 0; echo
+cat /home/yourname/.minikube/profiles/minikube/client.crt | base64 -w 0; echo
+cat /home/yourname/.minikube/profiles/minikube/client.key | base64 -w 0; echo
 ```
 
 Copy each base64 string and replace the corresponding `certificate-authority-data`, `client-certificate-data`, and `client-key-data` fields in your config file.
@@ -681,7 +681,7 @@ argocd login 34.72.5.170:31704 --username admin --password $(kubectl get secret 
    * **Type:** git
    * **Name:** anything you want
    * **Project:** default
-   * **Repo URL:** `https://github.com/data-guru0/GitOPS-testing.git`
+   * **Repo URL:** `https://github.com/yourname/GitOPS-testing.git`
    * **Username & Password:** Provide GitHub username and token (optional but recommended)
 3. Click **Connect**.
 4. You should see a success message confirming the GitHub repo is connected to ArgoCD.
